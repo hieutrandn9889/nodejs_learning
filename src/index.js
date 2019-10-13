@@ -12,7 +12,7 @@ const server = http.createServer((request, response) =>{
 }).listen(port);
 console.log(`Server is running on port: ${port}.`)
 
-// read file json
+// READ FILE JSON
 console.log("Working with files")
 var fileManager = require('./fileManager');
 const fileName  = __dirname + '/../data/temp.txt';
@@ -52,4 +52,7 @@ let jsonObject = {
     restaurantName: "Sasimi BBQ"
 };
 jsonObject.address = "99 to hien thanh, da nang, Vietnam";
-fileManager.saveJsonObjectToFile(jsonObject, fileName)
+fileManager.saveJsonObjectToFile(jsonObject, fileName);
+fileManager.readJsonObjectFromFile(fileName);
+
+//EVENT
