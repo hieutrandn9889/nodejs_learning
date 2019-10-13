@@ -19,7 +19,7 @@ module.exports = {
         fs.readFile(fileName, (err, data) => {
             if (err) throw err;// nhay ra if error
             let jsonObject = JSON.parse(data);
-            console.log(`jsonObject.foods = ${JSON.stringify(jsonObject.foods)}`);
+            // console.log(`jsonObject.foods = ${JSON.stringify(jsonObject.foods)}`);
             console.log(`jsonObject.resultCode = ${JSON.stringify(jsonObject.resultCode)}`);
             console.log(`jsonObject.restaurantName = ${JSON.stringify(jsonObject.restaurantName)}`);
             console.log(`jsonObject.address = ${JSON.stringify(jsonObject.address)}`);
