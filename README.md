@@ -18,3 +18,20 @@ express: quản lý API từ client lên server và quản lý database
 install express: npm install express-generator -g
 build: express --view=ejs myApp
 install nodemon: npm install --save-dev nodemon
+
+//mongo
+server: mongod --port 27017 --dbpath D:\nodejs_learning\database
+client: mongo --port 27017
+        use tutorialMongoDB
+        db.createUser({user:"hieu", pwd:"hieu", roles:["readWrite", "dbAdmin", "dbOwner"]})
+server: restart server >> then turn on:
+mongod --auth --port 27017 --dbpath D:\nodejs_learning\database   
+client: Login by command
+        mongo --port 27017 -u "hieu" -p "hieu" --authenticationDatabase "tutorialMongoDB" 
+        use tutorialMongoDB
+        show collections
+// mongoose
+install mongoose: npm install --save-dev mongoose
+
+// morgan
+install morgan: npm install --save-dev morgan

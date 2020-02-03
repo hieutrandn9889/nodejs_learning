@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+let Food   = require('../models/FoodModel')
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -10,8 +11,30 @@ router.get('/list_all_foods', (req, res, next) => {
   res.end("GET requested => list_all_foods")
 });
 
+// insert db
 router.post('/insert_new_food', (req, res, next) => {
-  res.end("POST requested => insert_new_food")
+  const newFood = new Food({
+    name: req.body.name,
+    foodDescription: req.body.foodDescription
+  });
+  newFood.save((err) => {
+    if (err) {
+      res.json({
+        result: "failed",
+        data:{},
+        message: `Error is: ${err}`
+      });
+    } else {
+      res.json({
+        result: "OK",
+        data:{
+          name: req.body.name,
+          foodDescription: req.body.foodDescription,
+          message: "Insert new food successfully"
+        },
+      });
+    }
+  });
 });
 
 router.put('/update_a_food', (req, res, next) => {
